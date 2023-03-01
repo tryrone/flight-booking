@@ -3,7 +3,7 @@ export default {
   white: "#FFFFFF",
   black: "#000000",
   gray: "rgb(237,240,243)",
-  light_grey: "#7F8192",
+  light_grey: "#f8f8f8",
   light_grey_2: "#f6f5f6",
   dark_grey: "#424448",
   dark_grey_2: "#85878b",
@@ -40,4 +40,5 @@ export default {
   credit: "#357B00",
   green_2: "#008322",
   light_purple: "#e4dff7",
+  border_color: "#ececec",
 };

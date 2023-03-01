@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-confirmation-code-field/esm/CodeField.d.ts b/node_modules/react-native-confirmation-code-field/esm/CodeField.d.ts
+index d9259e0..f6c70ef 100644
+--- a/node_modules/react-native-confirmation-code-field/esm/CodeField.d.ts
++++ b/node_modules/react-native-confirmation-code-field/esm/CodeField.d.ts
+@@ -38,7 +38,7 @@ export interface Props
+ export interface CodeFieldOverridableComponent {
+   <C extends ElementType>(
+     props: {
+-      InputComponent: C;
++      InputComponent?: C;
+     } & OmitStyle<ComponentPropsWithRef<C>> &
+       BaseProps,
+   ): ReactElement;

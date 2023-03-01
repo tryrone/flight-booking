@@ -1,6 +1,6 @@
-import React from 'react';
-import {StyleSheet, ViewStyle} from 'react-native';
-import Text from 'react-native-text';
+import React from "react";
+import { StyleSheet, ViewStyle } from "react-native";
+import Text from "react-native-text";
 
 import {
   CodeField,
@@ -8,26 +8,26 @@ import {
   RenderCellOptions,
   useBlurOnFulfill,
   useClearByFocusCell,
-} from 'react-native-confirmation-code-field';
-import styled from 'styled-components/native';
-import Colors from '../../constants/Colors';
-import CustomText from '../CustomText';
-import Fonts from '../../constants/Fonts';
+} from "react-native-confirmation-code-field";
+import styled from "styled-components/native";
+import Colors from "../../constants/Colors";
+import CustomText from "../CustomText";
+import Fonts from "../../constants/Fonts";
 
 const styles = StyleSheet.create({
-  codeFieldRoot: {marginVertical: 10},
+  codeFieldRoot: { marginVertical: 10 },
   cell: {
     width: 56,
     height: 56,
     backgroundColor: Colors?.white,
-    textAlign: 'center',
+    textAlign: "center",
     borderRadius: 6,
-    textAlignVertical: 'top',
+    textAlignVertical: "top",
   },
   cellText: {
     fontSize: 24,
-    textAlign: 'center',
-    textAlignVertical: 'top',
+    textAlign: "center",
+    textAlignVertical: "top",
     lineHeight: 48,
   },
   focusCell: {},
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   textInputStyle: {
     borderRadius: 6,
-    backgroundColor: '#fe5',
+    backgroundColor: "#fe5",
   },
 });
 
@@ -46,8 +46,8 @@ const ContainerView = styled.View<{
 }>`
   padding-vertical: 10px;
   width: 100%;
-  margin-top: ${({top}) => top}px;
-  margin-bottom: ${({bottom}) => bottom || 0}px;
+  margin-top: ${({ top }) => top}px;
+  margin-bottom: ${({ bottom }) => bottom || 0}px;
 `;
 
 const InputBox = styled.View`
@@ -56,10 +56,10 @@ const InputBox = styled.View`
     height: 56,
     fontSize: 24,
     backgroundColor: Colors?.grey_6,
-    textAlign: 'center',
+    textAlign: "center",
     borderRadius: 6,
-    textAlignVertical: 'top',
-    lineHeight: '48px',
+    textAlignVertical: "top",
+    lineHeight: "48px",
   }}
 `;
 
@@ -78,17 +78,17 @@ type CodeInputProps = {
 };
 
 function CodeInput({
-  name = '',
-  value = '',
+  name = "",
+  value = "",
   handleChange = () => {},
-  errors = '',
+  errors = "",
   cellCount = CELL_COUNT,
   codeFieldRootStyle = {},
   top = 0,
   bottom = 0,
   maskedInput = false,
 }: CodeInputProps) {
-  const ref = useBlurOnFulfill({value, cellCount});
+  const ref = useBlurOnFulfill({ value, cellCount });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
     setValue: handleChange,
@@ -102,7 +102,7 @@ function CodeInput({
     let textChild = null;
 
     if (symbol) {
-      textChild = maskedInput ? '•' : symbol;
+      textChild = maskedInput ? "•" : symbol;
     } else if (isFocused) {
       textChild = <Cursor />;
     }
@@ -114,7 +114,8 @@ function CodeInput({
           isFocused && styles.focusCell,
           errors.length > 0 && styles.errorCell,
         ]}
-        onLayout={getCellOnLayoutHandler(index)}>
+        onLayout={getCellOnLayoutHandler(index)}
+      >
         <Text style={styles.cellText}>{textChild}</Text>
       </InputBox>
     );
@@ -138,9 +139,10 @@ function CodeInput({
           fontWeight="500"
           top={4}
           left={5}
-          fontFamily={Fonts?.SailecMedium}
+          fontFamily={Fonts?.PoppinsMedium}
           fontSize={13}
-          color={Colors.error}>
+          color={Colors.error}
+        >
           {errors}
         </CustomText>
       )}
