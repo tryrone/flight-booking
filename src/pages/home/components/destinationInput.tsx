@@ -23,8 +23,7 @@ const Row = styled.View`
 
 const Line = styled.View`
   height: 2px;
-  width: 95%;
-  background-color: ${Colors?.black};
+  width: 100%;
 `;
 
 type DestinationInputProps = {
@@ -63,7 +62,7 @@ const DestinationInput = ({
       </View>
 
       <Row>
-        <View style={{ width: 20 }}>
+        <View style={{ width: 20, backgroundColor: Colors.white }}>
           <PlaneSvg />
           <Row>
             <Line />
@@ -71,8 +70,9 @@ const DestinationInput = ({
               <SmallArrowDownSvg
                 style={{
                   position: "relative",
-                  top: -10,
+                  top: -15,
                   left: -5,
+                  padding: 5,
                 }}
               />
             )}

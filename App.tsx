@@ -1,5 +1,6 @@
 import { useFonts } from "expo-font";
 import BottomNav from "./src/bottomNav";
+import "react-native-reanimated";
 import "react-native-gesture-handler";
 
 const App = (): JSX.Element => {

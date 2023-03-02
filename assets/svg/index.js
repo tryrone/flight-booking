@@ -10,6 +10,7 @@ import CalenderSvg from "./calender.svg";
 import ProfileCircleSvg from "./profile_circle.svg";
 import SettingsSvg from "./settings.svg";
 import ChevronDownSvg from "./chevron_down.svg";
+import SmallPlaneSvg from "./white_plane.svg";
 
 export {
   HomeSvg,
@@ -24,4 +25,5 @@ export {
   ProfileCircleSvg,
   SettingsSvg,
   ChevronDownSvg,
+  SmallPlaneSvg,
 };
