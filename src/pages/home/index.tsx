@@ -8,6 +8,9 @@ import { ScrollView, View } from "react-native";
 import { BellSvg } from "../../../assets/svg";
 import DestinationForm from "./components/destinationForm";
 import PopularFlights from "./components/popularFlights";
+import { ScreenDefaultProps } from "../../utils";
+import { map } from "../../../assets/images";
+import CardSafeAreaWrap from "./cardSafeArea";
 
 const BlueBg = styled.View`
   height: 40%;
@@ -15,7 +18,6 @@ const BlueBg = styled.View`
   background-color: ${Colors?.primary};
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  padding-horizontal: 20px;
   position: absolute;
 `;
 
@@ -39,10 +41,23 @@ const NotificationWrap = styled.View`
   align-items: center;
 `;
 
+const FullImageBg = styled.ImageBackground`
+  height: 100%;
+  width: 100%;
+`;
+
+const ImageBackgroundCard = styled.ImageBackground<{ bgColor?: string }>`
+  flex: 1;
+  background-color: ${({ bgColor }) => bgColor || Colors?.white};
+`;
+
 const Home = () => {
   return (
-    <SafeAreaWrap bg={Colors?.light_grey_2} safeAreaBg={Colors?.primary}>
-      <BlueBg />
+    <CardSafeAreaWrap bg={Colors.light_grey_2} safeAreaBg={Colors.primary}>
+      <BlueBg>
+        <FullImageBg source={map} resizeMode="cover" />
+      </BlueBg>
+
       <View style={{ paddingHorizontal: 20 }}>
         <SpacedRow style={{ marginBottom: 20 }} mt={20}>
           <View>
@@ -74,7 +89,7 @@ const Home = () => {
           <PopularFlights />
         </ScrollView>
       </View>
-    </SafeAreaWrap>
+    </CardSafeAreaWrap>
   );
 };
 

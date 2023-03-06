@@ -1,9 +1,5 @@
-export const ONBOARDING = 'ONBOARDING';
-export const SIGN_UP = 'SIGN_UP';
-export const PHONE_OTP_VERIFICATION = 'PHONE_OTP_VERIFICATION';
-export const ONBOARDING_SET_PIN = 'ONBOARDING_SET_PIN';
-export const ONBOARDING_CONFIRM_PIN = 'ONBOARDING_CONFIRM_PIN';
-export const DASHBOARD = 'DASHBOARD';
-export const BUDGET_DETAIL = 'BUDGET_DETAIL';
-export const ANALYTICS = 'ANALYTICS';
-export const TRANSACTION_LIST = 'TRANSACTION_LIST';
+const ROUTES = {
+  bottomNav: "bottomNav",
+  flightDetail: "flightDetail",
+};
+export default ROUTES;

@@ -1,5 +1,4 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./pages/home";
 import Tickets from "./pages/tickets";
@@ -49,78 +48,74 @@ const RenderComponetIcon = ({
 
 const BottomNav = () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="Home"
-        backBehavior="history"
-        screenOptions={{
-          tabBarActiveTintColor: Colors.primary,
-          tabBarInactiveTintColor: Colors.inactiveIcon,
-          lazy: true,
-          tabBarStyle: [
-            {
-              display: "flex",
-              height: 80,
-              borderTopColor: Colors?.white,
-              borderTopWidth: 0,
-              position: "relative",
-              paddingTop: 15,
-            },
-            null,
-          ],
-          headerShown: false,
+    <Tab.Navigator
+      initialRouteName="Home"
+      backBehavior="history"
+      screenOptions={{
+        tabBarActiveTintColor: Colors.primary,
+        tabBarInactiveTintColor: Colors.inactiveIcon,
+        lazy: true,
+        tabBarStyle: [
+          {
+            display: "flex",
+            height: 80,
+            borderTopColor: Colors?.white,
+            borderTopWidth: 0,
+            position: "relative",
+            paddingTop: 15,
+          },
+          null,
+        ],
+        headerShown: false,
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarLabel: ({ focused }) =>
+            RenderComponentLabel({ focused, text: "Home" }),
+          tabBarIcon: ({ focused }) =>
+            RenderComponetIcon({
+              focused,
+              activeIcon: <HomeSvg style={{ color: Colors?.primary }} />,
+              inacitveIcon: <HomeSvg style={{ color: Colors?.inactiveIcon }} />,
+            }),
         }}
-      >
-        <Tab.Screen
-          name="Home"
-          component={Home}
-          options={{
-            tabBarLabel: ({ focused }) =>
-              RenderComponentLabel({ focused, text: "Home" }),
-            tabBarIcon: ({ focused }) =>
-              RenderComponetIcon({
-                focused,
-                activeIcon: <HomeSvg style={{ color: Colors?.primary }} />,
-                inacitveIcon: (
-                  <HomeSvg style={{ color: Colors?.inactiveIcon }} />
-                ),
-              }),
-          }}
-        />
-        <Tab.Screen
-          name="Tickets"
-          component={Tickets}
-          options={{
-            tabBarLabel: ({ focused }) =>
-              RenderComponentLabel({ focused, text: "Tickets" }),
-            tabBarIcon: ({ focused }) =>
-              RenderComponetIcon({
-                focused,
-                activeIcon: <TicketSvg style={{ color: Colors?.primary }} />,
-                inacitveIcon: (
-                  <TicketSvg style={{ color: Colors?.inactiveIcon }} />
-                ),
-              }),
-          }}
-        />
-        <Tab.Screen
-          name="Profile"
-          component={Profile}
-          options={{
-            tabBarLabel: ({ focused }) =>
-              RenderComponentLabel({ focused, text: "Profile" }),
-            tabBarIcon: ({ focused }) =>
-              RenderComponetIcon({
-                focused,
-                activeIcon: <ProfileSvg style={{ color: Colors?.primary }} />,
-                inacitveIcon: (
-                  <ProfileSvg style={{ color: Colors?.inactiveIcon }} />
-                ),
-              }),
-          }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+      />
+      <Tab.Screen
+        name="Tickets"
+        component={Tickets}
+        options={{
+          tabBarLabel: ({ focused }) =>
+            RenderComponentLabel({ focused, text: "Tickets" }),
+          tabBarIcon: ({ focused }) =>
+            RenderComponetIcon({
+              focused,
+              activeIcon: <TicketSvg style={{ color: Colors?.primary }} />,
+              inacitveIcon: (
+                <TicketSvg style={{ color: Colors?.inactiveIcon }} />
+              ),
+            }),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarLabel: ({ focused }) =>
+            RenderComponentLabel({ focused, text: "Profile" }),
+          tabBarIcon: ({ focused }) =>
+            RenderComponetIcon({
+              focused,
+              activeIcon: <ProfileSvg style={{ color: Colors?.primary }} />,
+              inacitveIcon: (
+                <ProfileSvg style={{ color: Colors?.inactiveIcon }} />
+              ),
+            }),
+        }}
+      />
+    </Tab.Navigator>
   );
 };
 

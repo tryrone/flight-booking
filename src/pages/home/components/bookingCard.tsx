@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import React from "react";
 import styled from "styled-components/native";
 import Colors from "../../../constants/Colors";
@@ -7,6 +7,8 @@ import { Easing } from "react-native-reanimated";
 import { PlaneSvg, SmallPlaneSvg } from "../../../../assets/svg";
 import CustomText from "../../../components/CustomText";
 import Fonts from "../../../constants/Fonts";
+import { useNavigation } from "@react-navigation/native";
+import ROUTES from "../../../constants/navigationConstants";
 
 const Dot = styled.View`
   height: 7px;
@@ -23,7 +25,7 @@ const Wave = styled(MotiView)`
   position: absolute;
 `;
 
-const PaperWrapper = styled.View<{
+const PaperWrapper = styled.Pressable<{
   mt?: number;
   mb?: number;
 }>`
@@ -252,8 +254,13 @@ const AirlineAndPrice = (): JSX.Element => {
 };
 
 const BookingCard = () => {
+  const navigation: never | any = useNavigation();
   return (
-    <PaperWrapper mt={20} mb={150}>
+    <PaperWrapper
+      onPress={() => navigation.navigate(ROUTES.flightDetail)}
+      mt={20}
+      mb={150}
+    >
       <BookingDestinationRow />
       <BookingTime />
       <TicketRow />
